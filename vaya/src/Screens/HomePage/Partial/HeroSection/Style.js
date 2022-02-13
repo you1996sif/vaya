@@ -9,7 +9,7 @@ import Heropic4 from '../pics/HeroSection4.jpg'
 const useStyles = makeStyles(() =>
 ({
     root: {
-        minHeight: '100vh',
+        // minHeight: '100vh',
         border: 'none'
     },
     itemparagaphs: {
@@ -26,28 +26,28 @@ const useStyles = makeStyles(() =>
 
         fontFamily: 'fantasy',
     },
-    Heropic1:{
+    Heropic1: {
 
-        backgroundColor: 'red', backgroundImage: `url(${Heropic1})`, height: '500px', backgroundPosition: 'center',
+        backgroundImage: `url(${Heropic1})`, height: '500px', backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         borderRadius: '15px'
     },
     Heropic2: {
-        backgroundColor: 'red', backgroundImage: `url(${Heropic2})`, height: '250px', backgroundPosition: 'center',
+        backgroundImage: `url(${Heropic2})`, height: '250px', backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         borderRadius: '15px'
     },
     Heropic3: {
-        backgroundColor: 'red', backgroundImage: `url(${Heropic3})`, height: '210px', backgroundPosition: 'center',
+        backgroundImage: `url(${Heropic3})`, height: '210px', backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         borderRadius: '15px'
     },
     Heropic4: {
 
-        backgroundColor: 'red', backgroundImage: `url(${Heropic4})`, height: '210px', backgroundPosition: 'center',
+         backgroundImage: `url(${Heropic4})`, height: '210px', backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         borderRadius: '15px'

@@ -21,7 +21,7 @@ export default function BasicGrid() {
     return (
         <Box sx={{ flexGrow: 1 }} className={classes.grids} >
             <Grid container spacing={3} paddingLeft={8}>
-                <Grid item xs={11.5} className={classes.itemparagaphs}>
+                <Grid item xs={11.7} className={classes.itemparagaphs}>
                     <Item className={classes.itemparagaphs}  >
                         <h1 className={classes.p1}>منتجات مصنوعة من مواد طبيعية</h1>
                         <h2 className={classes.p2}>فــايــا ملكة من العصر الآشوري كانت رمزا للجمال
@@ -42,10 +42,10 @@ export default function BasicGrid() {
                     </Item>
                 </Grid>
 
-                <Grid data-aos="zoom-in" data-aos-duration='2500' spacing={3} item xs={11.5} sm={11.5} md={7} lg={7} xl={7} display={{ xs: "block", sm: "block", lg: "block", md: "block", xl: "block" }} >
+                <Grid data-aos="zoom-in" data-aos-duration='2500' spacing={3} item xs={11.7} sm={11.7} md={7.2} lg={7.2} xl={7.2} display={{ xs: "block", sm: "block", lg: "block", md: "block", xl: "block" }} >
                     <Item className={classes.Heropic1}> </Item>
                 </Grid>
-                <Grid item container xs={11.5} sm={11.5} md={4.5} lg={4.5} xl={4.5} spacing={3}>
+                <Grid item container xs={11.7} sm={11.7} md={4.5} lg={4.5} xl={4.5} spacing={3}>
                     <Grid data-aos="fade-up" data-aos-duration='2500' item xs={12} >
                         <Item className={classes.Heropic2} > </Item>
                     </Grid>

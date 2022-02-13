@@ -3,8 +3,13 @@ const useStyles = makeStyles(() =>
 ({
     main: {
         minHeight: '72vh',
-        paddingTop: '2rem',
-        // backgroundColor: 'red'
+        paddingTop: '125px',
+        paddingRight: '40px'
+        ,
+        ['@media (max-width:600px)']: {
+            // paddingRight: '45px'
+        },
+
     }
 
 }))

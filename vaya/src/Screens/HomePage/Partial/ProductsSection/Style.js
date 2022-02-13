@@ -2,12 +2,13 @@ import { makeStyles } from '@mui/styles'
 const useStyles = makeStyles(() =>
 ({
     root: {
-        // minHeight: '100vh'
+        
     },
     shownew:{
         display: 'flex', 
         flexDirection: 'row', 
-        justifyContent: 'space-between', 
+        justifyContent: 'center',
+        gap:'1150px', 
         alignContent: 'center', 
         alignItems: 'center'
 
@@ -20,7 +21,8 @@ const useStyles = makeStyles(() =>
         marginTop: '-15px', borderTop: '3px solid #838383'
     },
     carts:{
-        borderRadius: '15px', transition: 'all 2s ease-in-out', transitionDelay: '2s'
+        borderRadius: '15px', transition: 'all 2s ease-in-out', transitionDelay: '2s',
+        height:'600px'
     },
 
 }))

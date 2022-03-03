@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 import useStyles from './style';
 import ProductCard from '../../Components/ProductCard';
 
@@ -12,17 +12,30 @@ import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
+import axios from "axios";
 
 
 
 
 const ProductsPage = () => {
     const [filterval, setFilterval] = React.useState('');
+    const [filterval1, setFilterval1] = React.useState("");
     const [arrayForFilter, setArrayForFilter] = React.useState([]);
+    const [loading, setLoading] = useState(false)
+    const [array, setArray] = useState([])
+
     const arrayformapComponents = [1, 2, 3]
     const handleChange = (event) => {
         setFilterval(event.target.value);
     };
+    const handleChange11 = (event) => {
+        setFilterval1(event.target.value);
+    };
+
+    // useEffect(() => {
+    //     console.log('filterval', filterval)
+    // }, [filterval])
+
     const navigate = useNavigate();
     const label = ""
 
@@ -40,66 +53,102 @@ const ProductsPage = () => {
     // const handleInput = (e) => {
     //     setPrice(e.target.value);
     // }
-    const array = [
-        { id: '1', name: "1اولفيرا", price: "10.000", type: "1مرطب", image: Image },
-        { id: '11', name: "1اولفيرا", price: "1", type: "1مرطب", image: Image },
-        { id: '111', name: "1اولفيرا", price: "1", type: "1مرطب", image: Image },
-        { id: '1111', name: "1اولفيرا", price: "2", type: "مرطب", image: Image1 },
+    // const array = [
+    //     { id: '1', title: "1اولفيرا", price: "10.000", type: "1مرطب", image: Image },
+    //     { id: '11', title: "1اولفيرا", price: "1", type: "1مرطب", image: Image },
+    //     { id: '111', title: "1اولفيرا", price: "1", type: "1مرطب", image: Image },
+    //     { id: '1111', title: "1اولفيرا", price: "2", type: "مرطب", image: Image1 },
 
-        { id: '12', name: "اولفيرا", price: "2", type: "مرطب", image: Image1 },
-        { id: '122', name: "اولفيرا", price: "2", type: "مرطب", image: Image1 },
-        { id: '1222', name: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
-        { id: '12222', name: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
+    //     { id: '12', title: "اولفيرا", price: "2", type: "مرطب", image: Image1 },
+    //     { id: '122', title: "اولفيرا", price: "2", type: "مرطب", image: Image1 },
+    //     { id: '1222', title: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
+    //     { id: '12222', title: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
 
-        { id: '13', name: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
-        { id: '133', name: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
-        { id: '1333', name: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
-        { id: '13333', name: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
+    //     { id: '13', title: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
+    //     { id: '133', title: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
+    //     { id: '1333', title: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
+    //     { id: '13333', title: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
 
-        { id: '14', name: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
-        { id: '144', name: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
-        { id: '1444', name: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
-        { id: '14444', name: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
-        { id: '15', name: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
-        { id: '155', name: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
-        { id: '1555', name: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
-        { id: '15555', name: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
-        { id: '155555', name: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
-        { id: '16', name: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
-        { id: '166', name: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
-        { id: '1666', name: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
-    ];
+    //     { id: '14', title: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
+    //     { id: '144', title: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
+    //     { id: '1444', title: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
+    //     { id: '14444', title: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
+    //     { id: '15', title: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
+    //     { id: '155', title: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
+    //     { id: '1555', title: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
+    //     { id: '15555', title: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
+    //     { id: '155555', title: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
+    //     { id: '16', title: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
+    //     { id: '166', title: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
+    //     { id: '1666', title: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
+    // ];
     const arrayOfoptinsOfcategories = [
-        { value: 'شامبو', label: "شامبو" },
-        { value: 'صابون', label: "صابون" },
-        { value: 'كريم', label: "كريم" },
+        
     ];
+
+    // array?.category?.map(item => arrayOfoptinsOfcategories.push({
+    //     value: item.title, label: item.title
+    // }))
+    array?.map(item => arrayOfoptinsOfcategories.push({ value: item.category.title, label: item.category.title }))
+    // let uniqueChars = [...new Set(arrayOfoptinsOfcategories)];
+    // console.log('uniqueChars', uniqueChars)
+    var uniq = {}
+    var arrFiltered = arrayOfoptinsOfcategories.filter(obj => !uniq[obj.label] && (uniq[obj.label] = true));
+
+    console.log('arrFiltered', arrFiltered)
+
     const arrayOfoptinsOfprice = [
-        { value: '10.000', label: "10.000" },
-        { value: '20.000', label: '20.000' },
-        { value: '30.000', label: '30.000' },
+        
     ];
+
     const arrayOfoptinsOfSize = [
-        { value: '200ml', label: "200ml" },
-        { value: '500ml', label: "500ml" },
-        { value: '1000ml', label: "1000ml" },
+        
     ];
+    
+
+    array?.map(item => item.variants?.map(item => arrayOfoptinsOfSize.push({
+        value: item.size, label: item.size
+        // value: item.price.toString(), label: item.size
+    })))
 
     const classes = useStyles()
 
     useEffect(() => {
-        setArrayForFilter(array.filter(e => (e.type.toUpperCase().indexOf(filterval.toUpperCase()) !== -1
-            || e.name.toUpperCase().indexOf(filterval.toUpperCase()) !== -1)))
-    }, [filterval])
+        setArrayForFilter(array.filter(e => (e.category.title.toUpperCase().indexOf(filterval.toUpperCase()) !== -1
+            || e.title.toUpperCase().indexOf(filterval.toUpperCase()) !== -1)))
+    }, [filterval, filterval1, value])
 
-    // useEffect(() => {
-    //     setArrayForFilter(array.filter(hotel => { return hotel.price > parseInt(price, 10) }))
-    // }, [price])
     useEffect(() => {
-        setArrayForFilter(array.filter(hotel => { return hotel.price > value[0] && hotel.price < value[1] }))
-    }, [value])
+        setArrayForFilter(array.filter(e => e.variants?.map(item => item?.size ).indexOf(filterval1) !== -1))
+        // setArrayForFilter(array.filter(e => e.variants?.map(item => console.log('item.size', item.size)))
+        
+    }, [filterval1, filterval, value])
 
-    return <div className={classes.root}>
+    useEffect(() => {
+        setArrayForFilter(array.filter(hotel => { return hotel?.variants[0]?.price > value[0] && hotel?.variants[0]?.price < value[1] }))
+    }, [value, array, filterval])
+
+    useEffect(async () => {
+        try {
+            setLoading(true)
+            const res = await axios.get('https://vaya-final-backend.herokuapp.com/api/product')
+            if (res.data) {
+
+                setArray(res.data)
+                console.log('res', res)
+                console.log('array', array)
+
+                setLoading(false)
+            }
+        } catch (error) {
+            setLoading(false)
+            console.log('error', error)
+        }
+    }, [])
+
+    if (loading || array.length == 0) {
+        return <div>loading....</div>
+    } else return <div className={classes.root}>
         <div className={classes.top}>
             المنتجات
 
@@ -108,7 +157,8 @@ const ProductsPage = () => {
             <div className={classes.products}>
                 {
                     arrayForFilter.map((item) => (
-                        <ProductCard key={item.id} onClick={() => navigate(`/productinfo/${item.id}`)} {...item} image={item.image} customStyle={classes.root2} />
+                        // <ProductCard key={item.id} {...item} image={item?.image} onClick={() => navigate(`/productinfo/${item.id}`)} />
+                        <ProductCard key={item.id} {...item} type={item?.category?.title} price={item?.variants[0]?.price} image={item?.images[0]} onClick={() => navigate(`/productinfo/${item.id}`)} />
                     ))
                 }
             </div>
@@ -119,9 +169,9 @@ const ProductsPage = () => {
                 } */}
 
 
-                <BasicSelect handleChange={handleChange} filterval={filterval} classes={classes.formcontrol} label={'الصنف'} arrayOfoptins={arrayOfoptinsOfcategories} />
+                <BasicSelect handleChange={handleChange} filterval={filterval} classes={classes.formcontrol} label={'الصنف'} arrayOfoptins={arrFiltered} />
                 {/* <BasicSelect handleChange={handleChange} filterval={filterval} classes={classes.formcontrol} label={'السعر'} arrayOfoptins={arrayOfoptinsOfprice}/> */}
-                <BasicSelect handleChange={handleChange} filterval={filterval} classes={classes.formcontrol} label={'الحجم'} arrayOfoptins={arrayOfoptinsOfSize} />
+                <BasicSelect handleChange={handleChange11} filterval={filterval1} classes={classes.formcontrol} label={'الحجم'} arrayOfoptins={arrayOfoptinsOfSize} />
 
                 {/* 
                 <input value={price} type="range" onInput={handleInput} />
@@ -136,7 +186,7 @@ const ProductsPage = () => {
                         max={100000}
                         step={250}
                         size={'small'}
-                        sx={{width:'262px' , marginLeft:'12px'}}
+                        sx={{ width: '262px', marginLeft: '12px' }}
                     />
                     <h4 className={classes.price}>
                         <span className={classes.pricespan}>

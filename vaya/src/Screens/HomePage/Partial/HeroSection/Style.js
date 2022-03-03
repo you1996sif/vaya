@@ -15,15 +15,24 @@ const useStyles = makeStyles(() =>
     itemparagaphs: {
         borderRadius: '15px', transition: 'all 2s ease-in-out', transitionDelay: '2s'
     },
+
+    itemparagaphs1: {
+        borderRadius: '15px', transition: 'all 2s ease-in-out', transitionDelay: '2s'
+        , textAlign: 'center', backgroundColor: 'red'
+    },
     p1: {
 
         color: 'black',
-        paddingTop: "50px"
+        paddingTop: "50px",
+        fontFamily: 'fantasy',
+
 
     },
     p2: {
-        paddingBottom: "50px",
-
+        color: 'black',
+        // width: '50%',
+        paddingBottom: "10px",
+        textAlign: 'center',
         fontFamily: 'fantasy',
     },
     Heropic1: {
@@ -47,7 +56,7 @@ const useStyles = makeStyles(() =>
     },
     Heropic4: {
 
-         backgroundImage: `url(${Heropic4})`, height: '210px', backgroundPosition: 'center',
+        backgroundImage: `url(${Heropic4})`, height: '210px', backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         borderRadius: '15px'

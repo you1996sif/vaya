@@ -7,54 +7,79 @@ import Image from '../pics/HeroSection1.jpg';
 import Image1 from '../pics/HeroSection2.jpg';
 import Image2 from '../pics/HeroSection3.jpg';
 import Image3 from '../pics/HeroSection4.jpg';
-
+import axios from "axios";
 
 
 
 
 function SliderComponent({ stepProps }) {
     const [step, setStep] = useState(stepProps)
-    const array = [
-        { id: '1', name: "1اولفيرا", price: "10.000", type: "1مرطب", image: Image },
-        { id: '11', name: "1اولفيرا", price: "1", type: "1مرطب", image: Image },
-        { id: '111', name: "1اولفيرا", price: "1", type: "1مرطب", image: Image },
-        { id: '1111', name: "1اولفيرا", price: "2", type: "مرطب", image: Image1 },
+    const [loading, setLoading] = useState(false)
+    const [array, setArray] = useState([])
 
-        { id: '12', name: "اولفيرا", price: "2", type: "مرطب", image: Image1 },
-        { id: '122', name: "اولفيرا", price: "2", type: "مرطب", image: Image1 },
-        { id: '1222', name: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
-        { id: '12222', name: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
+    // const array = [
+    //     { id: '1', name: "1اولفيرا", price: "10.000", type: "1مرطب", image: Image },
+    //     { id: '11', name: "1اولفيرا", price: "1", type: "1مرطب", image: Image },
+    //     { id: '111', name: "1اولفيرا", price: "1", type: "1مرطب", image: Image },
+    //     { id: '1111', name: "1اولفيرا", price: "2", type: "مرطب", image: Image1 },
 
-        { id: '13', name: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
-        { id: '133', name: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
-        { id: '1333', name: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
-        { id: '13333', name: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
+    //     { id: '12', name: "اولفيرا", price: "2", type: "مرطب", image: Image1 },
+    //     { id: '122', name: "اولفيرا", price: "2", type: "مرطب", image: Image1 },
+    //     { id: '1222', name: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
+    //     { id: '12222', name: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
 
-        { id: '14', name: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
-        { id: '144', name: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
-        { id: '1444', name: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
-        { id: '14444', name: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
-        { id: '15', name: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
-        { id: '155', name: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
-        { id: '1555', name: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
-        { id: '15555', name: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
-        { id: '155555', name: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
-        { id: '16', name: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
-        { id: '166', name: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
-        { id: '1666', name: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
+    //     { id: '13', name: "اولفيرا", price: "3", type: "مرطب", image: Image2 },
+    //     { id: '133', name: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
+    //     { id: '1333', name: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
+    //     { id: '13333', name: "اولفيرا", price: "4", type: "مرطب", image: Image3 },
 
-    ];
+    //     { id: '14', name: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
+    //     { id: '144', name: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
+    //     { id: '1444', name: "اولفيرا", price: "5", type: "مرطب", image: Image2 },
+    //     { id: '14444', name: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
+    //     { id: '15', name: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
+    //     { id: '155', name: "اولفيرا", price: "6", type: "مرطب", image: Image2 },
+    //     { id: '1555', name: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
+    //     { id: '15555', name: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
+    //     { id: '155555', name: "اولفيرا", price: "7", type: "مرطب", image: Image2 },
+    //     { id: '16', name: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
+    //     { id: '166', name: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
+    //     { id: '1666', name: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
+
+    // ];
+
+    useEffect(async () => {
+        window.addEventListener('resize', forWidth, false)
+        try {
+            setLoading(true)
+            const res = await axios.get('https://zubaidahbilal98.pythonanywhere.com/api/product/')
+            if (res.data) {
+
+                setArray(res.data)
+                console.log('res', res)
+                console.log('array', array)
+
+                setLoading(false)
+            }
+        } catch (error) {
+            setLoading(false)
+            console.log('error', error)
+        }
+    }, [])
+
+    // useEffect(async () => {
+    //     try {
+    //         const res = await axios.get('https://vaya-backend.herokuapp.com/api/product')
+    //         console.log('res', res)
+    //     } catch (error) {
+    //         console.log('error', error)
+    //     }
+    // }, [])
+
     let i = 0,
         j = step;
     let indexLess = 0;
     // setStepState(step)
-
-    useEffect(() => {
-        window.addEventListener('resize', forWidth, false)
-        // return(
-        //     window.removeEventListener('resize',forWidth)
-        // )
-    }, [])
 
     const forWidth = () => {
         if (window.innerWidth < 700) {
@@ -64,6 +89,7 @@ function SliderComponent({ stepProps }) {
             // console.log('step', step);
         } else if (window.innerWidth > 700 && window.innerWidth < 1000) {
             setStep(2)
+            // console.log('11111111111111111111111111')
             // step = 2
         }
     }
@@ -72,8 +98,11 @@ function SliderComponent({ stepProps }) {
     // console.log('x', x, y);
     var start = 0;
     var end = 0;
+    let c = 'https://zubaidahbilal98.pythonanywhere.com'
 
-    return (
+    if (loading) {
+        return <div>loading....</div>
+    } else return (
         <>
             <Slider height="500px" auto speed={2000}>
                 {array.map((item, index) => {
@@ -109,6 +138,7 @@ function SliderComponent({ stepProps }) {
                             style={{
                                 width: "100%",
                                 height: "500px",
+                                // backgroundImage: `url(${c + array.images[0].image})`
                                 // background: `${item.color}`
                             }}
                         >

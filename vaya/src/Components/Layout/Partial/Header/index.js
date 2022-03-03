@@ -1,10 +1,10 @@
-import React, { useState,useRef,useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import BasicSelect from './BasicSelect'
 import Menu from './PositionedMenu'
 import useStyles from './Style'
 import logo from '../Header/Pics/logo.png'
 import LinkScroll from './partial/LinkScroll'
-
+// import './styleFont.css'
 
 const Header = () => {
     const classes = useStyles()
@@ -38,12 +38,59 @@ const Header = () => {
             <div className={classes.cart}>
                 <div className={classes.cartitem} onClick={() => setShowCart(!showCart)} ref={wrapperRef}>سلة</div>
                 {
-                    showCart && <div ref={wrapperRef} style={{ borderRadius:'30px',padding:'1rem',zIndex: '100000', width: '500px', backgroundColor: 'rgba(0,0,0,0.3)', position: 'absolute', top: '60%' }}>
-                        <div style={{ width: '100%', height: '100px ' }}>gfegregerhgerhger</div>
-                        <div >gfegregerhgerhger</div>
-                        <div >gfegregerhgerhger</div>
-                        <div >gfegregerhgerhger</div>
-                        <div >gfegregerhgerhger</div>
+                    showCart && <div ref={wrapperRef}  className={classes.test}>
+                        <div style={{ padding: '1rem', borderRadius: '10px', width: '94%', display: 'flex', justifyContent: 'space-between', backgroundColor: '#fff' }}>
+                            <div>
+                                <p >3000 د.ع</p>
+                                <p>ازالة</p>
+                            </div>
+                            <div>
+                                <p id="h">اوليفيرا</p>
+                                <p>مرطب</p>
+                            </div>
+                            <div>
+                                <img src={logo} style={{ width: '100px', borderRadius: '20px', height: '100px', objectFit: 'cover' }} />
+                            </div>
+                        </div>
+                        <div style={{ padding: '1rem', borderRadius: '10px', width: '94%', display: 'flex', justifyContent: 'space-between', backgroundColor: '#fff' }}>
+                            <div>
+                                <p >3000 د.ع</p>
+                                <p>ازالة</p>
+                            </div>
+                            <div>
+                                <p id="h">اوليفيرا</p>
+                                <p>مرطب</p>
+                            </div>
+                            <div>
+                                <img src={logo} style={{ width: '100px', borderRadius: '20px', height: '100px', objectFit: 'cover' }} />
+                            </div>
+                        </div>
+                        <div style={{ padding: '1rem', borderRadius: '10px', width: '94%', display: 'flex', justifyContent: 'space-between', backgroundColor: '#fff' }}>
+                            <div>
+                                <p >3000 د.ع</p>
+                                <p>ازالة</p>
+                            </div>
+                            <div>
+                                <p id="h">اوليفيرا</p>
+                                <p>مرطب</p>
+                            </div>
+                            <div>
+                                <img src={logo} style={{ width: '100px', borderRadius: '20px', height: '100px', objectFit: 'cover' }} />
+                            </div>
+                        </div>
+                        <div style={{ padding: '1rem', borderRadius: '10px', width: '94%', display: 'flex', justifyContent: 'space-between', backgroundColor: '#fff' }}>
+                            <div>
+                                <p >3000 د.ع</p>
+                                <p>ازالة</p>
+                            </div>
+                            <div>
+                                <p id="h">اوليفيرا</p>
+                                <p>مرطب</p>
+                            </div>
+                            <div>
+                                <img src={logo} style={{ width: '100px', borderRadius: '20px', height: '100px', objectFit: 'cover' }} />
+                            </div>
+                        </div>
                     </div>
                 }
                 <div className={classes.menu}><Menu /></div>

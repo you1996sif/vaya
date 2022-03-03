@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const ProductCard = ({ price, name, type, image, customStyle, onClick }) => {
+const ProductCard = ({ price, title, type, image, customStyle, onClick }) => {
     const navigate = useNavigate();
     const classes = useStyles()
 
@@ -27,7 +27,7 @@ const ProductCard = ({ price, name, type, image, customStyle, onClick }) => {
         <div className={classes.type}> {type}</div>
         <div className={classes.info}>
             <div>{price}</div>
-            <div>{name}</div>
+            <div>{title}</div>
         </div>
     </Item>
     </Tooltip>

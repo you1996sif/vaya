@@ -7,8 +7,8 @@ const useStyles = makeStyles(() =>
     shownew:{
         display: 'flex', 
         flexDirection: 'row', 
-        justifyContent: 'center',
-        gap:'1150px', 
+        justifyContent: 'space-between',
+        // gap:'1150px', 
         alignContent: 'center', 
         alignItems: 'center'
 

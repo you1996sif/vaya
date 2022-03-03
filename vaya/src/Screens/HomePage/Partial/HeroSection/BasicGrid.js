@@ -22,16 +22,14 @@ export default function BasicGrid() {
         <Box sx={{ flexGrow: 1 }} className={classes.grids} >
             <Grid container spacing={3} paddingLeft={8}>
                 <Grid item xs={11.7} className={classes.itemparagaphs}>
-                    <Item className={classes.itemparagaphs}  >
+                    <Item className={classes.itemparagaphs1}  >
                         <h1 className={classes.p1}>منتجات مصنوعة من مواد طبيعية</h1>
                         <h2 className={classes.p2}>فــايــا ملكة من العصر الآشوري كانت رمزا للجمال
                             <br /> والنظارة التي يتمتع بها الآشوريون القدماء نتيجة لعنايتهم الدائمة بالبشرة بمواد مستخلصة <br /> من ارضهم الخصبة أرض نينوى</h2>
                         {
                             readeMore && (
                                 <>
-                                    <h1 className={classes.p1}>منتجات مصنوعة من مواد طبيعية</h1>
-                                    <h2 className={classes.p2}>فــايــا ملكة من العصر الآشوري كانت رمزا للجمال
-                                        <br /> والنظارة التي يتمتع بها الآشوريون القدماء نتيجة لعنايتهم الدائمة بالبشرة بمواد مستخلصة <br /> من ارضهم الخصبة أرض نينوى</h2>
+                                    <h2 className={classes.p2}>فايا هو مشروع لانتاج مستحضرات العناية بالبشرة من مواد ومستخلصات المواد الطبيعية وانتاج الصابون المحضر <br /> من الزيوت العضوية النقية وفق معايير بيئية من خلال التصنيع اليدوي دون التأثير السلبي على المكونات الاولية </h2>
 
                                 </>
                             )
@@ -39,6 +37,7 @@ export default function BasicGrid() {
                         <Button variant='outlined' onClick={() => setReadeMore(!readeMore)}>{
                             readeMore ? 'أخفاء التفاصيل' : 'أقرأ المزيد'
                         }</Button>
+                        <br /><br /><br />
                     </Item>
                 </Grid>
 

@@ -1,0 +1,86 @@
+{
+    "products": [
+        {
+          "title": "Coffee scrup",
+          "description": "Coffee scrubs purportedly help treat cellulite in a variety of ways. It's thought that the caffeine in coffee can help dilate blood vessels and reduce the appearance of skin dimples. ... Like other exfoliating scrubs, this can help remove dead skin cells and yield a smoother, more even look to the skin.",
+          "slug": "coffee-scrup-458f95c2-eee3-492e-ab7c-c54d42ab2301",
+          "is_active": true,
+          "category": {
+            "id": "70a008c3-9c4c-431f-998c-03a2064fda37",
+            "title": "Scrup",
+            "description": "What could be better than homemade Sugar Scrub Recipes!! Perfect for exfoliating, smoothing and pampering yourself for pennies! My latest creation is just what you need for a refreshing spa-like experience – a Coffee Sugar Scrub!",
+            "image": "/category/Homemade-Coffee-Sugar-Scrub-1-735x919.jpg",
+            "slug": "scrup-70a008c3-9c4c-431f-998c-03a2064fda37",
+            "is_active": true
+          },
+          "images": [
+            {
+              "id": 2.1366711184414518e+38,
+              "image": "/product/wp4813115-simple-minimalist-wallpapers_Pw42p87.jpg",
+              "alt_text": "wallpaper",
+              "is_default_image": false
+            }
+          ],
+          "variants": [
+            {
+              "size": "small",
+              "price": 10
+            },
+            {
+              "size": "Medium",
+              "price": 20
+            }
+          ]
+        },
+        {
+          "title": "Lavender cream",
+          "description": "Lavender oil works to kill bacteria, and this can prevent and heal acne breakouts. It unclogs pores and reduces inflammation when you put it on your skin. To use lavender oil for acne, dilute it in coconut oil or another carrier oil and apply it to your skin after washing your face.",
+          "slug": "lavender-cream-37354b93-07fc-41e1-a7d2-cedf305fd97e",
+          "is_active": true,
+          "category": {
+            "id": "09ea9770-ccaa-46bd-a980-8f2a1fa2eaae",
+            "title": "Cream",
+            "description": "Since lavender has antifungal properties and reduces inflammation, it can help keep eczema at bay. Lavender oil can also be used to treat psoriasis. The lavender oil helps cleanse your skin and lessen redness and irritation.",
+            "image": "/category/51RS8yXGw-L._SL1000_.jpg",
+            "slug": "cream-09ea9770-ccaa-46bd-a980-8f2a1fa2eaae",
+            "is_active": true
+          },
+          "images": [
+            {
+              "id": 3.089264390244877e+38,
+              "image": "/product/51RS8yXGw-L._SL1000_.jpg",
+              "alt_text": "lavender",
+              "is_default_image": true
+            }
+          ],
+          "variants": [
+            {
+              "size": "500 ml",
+              "price": 45
+            },
+            {
+              "size": "60 ml",
+              "price": 60
+            }
+          ]
+        }
+      ],
+    "categories": [
+        {
+          "id": "70a008c3-9c4c-431f-998c-03a2064fda37",
+          "title": "Scrup",
+          "description": "What could be better than homemade Sugar Scrub Recipes!! Perfect for exfoliating, smoothing and pampering yourself for pennies! My latest creation is just what you need for a refreshing spa-like experience – a Coffee Sugar Scrub!",
+          "image": "/category/Homemade-Coffee-Sugar-Scrub-1-735x919.jpg",
+          "slug": "scrup-70a008c3-9c4c-431f-998c-03a2064fda37",
+          "is_active": true
+        },
+        {
+          "id": "09ea9770-ccaa-46bd-a980-8f2a1fa2eaae",
+          "title": "Cream",
+          "description": "Since lavender has antifungal properties and reduces inflammation, it can help keep eczema at bay. Lavender oil can also be used to treat psoriasis. The lavender oil helps cleanse your skin and lessen redness and irritation.",
+          "image": "/category/51RS8yXGw-L._SL1000_.jpg",
+          "slug": "cream-09ea9770-ccaa-46bd-a980-8f2a1fa2eaae",
+          "is_active": true
+        }
+      ]
+}

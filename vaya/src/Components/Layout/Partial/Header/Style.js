@@ -5,8 +5,8 @@ const useStyles = makeStyles((theme) =>
     root: {
         // paddingLeft:'10px',
         // paddingRight: '40px',
-        position:"fixed",
-        zIndex:'100',
+        position: "fixed",
+        zIndex: '100',
 
         width: '100%',
         height: "100px",
@@ -51,9 +51,9 @@ const useStyles = makeStyles((theme) =>
         // paddingRight:'10px',
         paddingTop: '2rem',
         cursor: 'pointer',
-        '&:hover': {
-            color: 'gray'
-        }
+        // '&:hover': {
+        //     color: 'gray'
+        // }
     },
     container: {
 
@@ -96,7 +96,38 @@ const useStyles = makeStyles((theme) =>
             color: 'gray'
         }
     }
+    ,
+    test: {
+        height: '440px', overflow: 'scroll', overflowX: 'hidden',
+        '&::-webkit-scrollbar': {
+            width: 8,
+            height: 6,
+            backgroundColor: 'transparent',
+        },
+        '&::-webkit-scrollbar-track': {
+            backgroundColor: 'transparent',
+        },
+        '&::-webkit-scrollbar-thumb': {
+            borderRadius: 6,
+            backgroundColor: '#B9B9B9',
+            minHeight: 24,
+            minWidth: 24,
+        },
+        '&::-webkit-scrollbar-thumb:focus': {
+            backgroundColor: '#adadad',
+        },
+        '&::-webkit-scrollbar-thumb:active': {
+            backgroundColor: '#adadad',
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+            backgroundColor: '#adadad',
+        },
+        '&::-webkit-scrollbar-corner': {
+            backgroundColor: 'transparent',
+        },
+        display: 'flex', flexDirection: 'column', gap: '10px', borderRadius: '20px', padding: '1rem', boxShadow: '0px 0px 15px rgba(0,0,0,0.3)', zIndex: '100000', width: '500px', backgroundColor: 'lightgray', position: 'absolute', top: '60%'
 
+    }
 
 
 

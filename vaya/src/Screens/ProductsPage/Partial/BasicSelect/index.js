@@ -5,9 +5,9 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Item from '../../../../Components/Item';
 
-const BasicSelect = ({ classes, handleChange, filterval, label,arrayOfoptins }) => {
+const BasicSelect = ({ classes, handleChange, filterval, label, arrayOfoptins, minWidth = '80%' }) => {
     return <div>
-        <FormControl variant="filled" sx={{ m: 1, minWidth: '80%', backgroundColor: 'transparent' }}
+        <FormControl variant="filled" sx={{ m: 1, minWidth: minWidth, backgroundColor: 'transparent' }}
             className={classes}>
             <InputLabel id="demo-simple-select-filled-label">{label}</InputLabel>
             <Select

@@ -110,9 +110,7 @@ const Header = () => {
             </div>
             <div className={classes.logo}>
                 <Link to="/" href="/" className={classes.vaya}  
-                    // onClick={() => {
-                    //     alert("Redirecting to GeeksforGeeks");
-                    // }} 
+                 
                     > ڤــايـا</Link>
             </div>
             {/* <img src={logo} alt="Logo" /> */}

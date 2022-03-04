@@ -68,7 +68,7 @@ const ProductInfo = () => {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 borderRadius: '15px',
-                backgroundColor: 'red'
+                // backgroundColor: 'red'
             }}>{console.log('array', array)}
 
                 {/* <img src={Image} style={{ width: '400px', }} /> */}

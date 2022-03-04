@@ -74,9 +74,14 @@ const useStyles = makeStyles((theme) =>
         width: '8%',
         paddingTop: '2rem',
         textAlign: 'right',
+color:'black'
         // paddingRight:'20px',
         // paddingLeft:'100px'
 
+    },
+    vaya: {
+        color: 'black',
+        
     },
     products: {
         cursor: 'pointer',

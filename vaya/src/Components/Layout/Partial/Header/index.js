@@ -1,9 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, } from 'react'
+// import { Route, Redirect } from 'react-router'
+
 import BasicSelect from './BasicSelect'
 import Menu from './PositionedMenu'
 import useStyles from './Style'
 import logo from '../Header/Pics/logo.png'
 import LinkScroll from './partial/LinkScroll'
+import Link from "@material-ui/core/Link";
 // import './styleFont.css'
 
 const Header = () => {
@@ -105,7 +108,13 @@ const Header = () => {
                 {/* <div className={classes.about}> تواصل معنا</div> */}
                 <div className={classes.products}><BasicSelect /></div>
             </div>
-            <div className={classes.logo}>ڤــايـا</div>
+            <div className={classes.logo}>
+                <Link to="/" href="/" className={classes.vaya}  
+                    // onClick={() => {
+                    //     alert("Redirecting to GeeksforGeeks");
+                    // }} 
+                    > ڤــايـا</Link>
+            </div>
             {/* <img src={logo} alt="Logo" /> */}
         </div>
     )

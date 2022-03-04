@@ -83,7 +83,7 @@ const ProductsPage = () => {
     //     { id: '1666', title: "اولفيرا", price: "1023.4", type: "مرطب", image: Image3 },
     // ];
     const arrayOfoptinsOfcategories = [
-        
+
     ];
 
     // array?.category?.map(item => arrayOfoptinsOfcategories.push({
@@ -98,13 +98,13 @@ const ProductsPage = () => {
     console.log('arrFiltered', arrFiltered)
 
     const arrayOfoptinsOfprice = [
-        
+
     ];
 
     const arrayOfoptinsOfSize = [
-        
+
     ];
-    
+
 
     array?.map(item => item.variants?.map(item => arrayOfoptinsOfSize.push({
         value: item.size, label: item.size
@@ -119,19 +119,20 @@ const ProductsPage = () => {
     }, [filterval, filterval1, value])
 
     useEffect(() => {
-        setArrayForFilter(array.filter(e => e.variants?.map(item => item?.size ).indexOf(filterval1) !== -1))
+        setArrayForFilter(array.filter(e => e.variants?.map(item => item?.size).indexOf(filterval1) !== -1))
         // setArrayForFilter(array.filter(e => e.variants?.map(item => console.log('item.size', item.size)))
-        
+
     }, [filterval1, filterval, value])
 
     useEffect(() => {
         setArrayForFilter(array.filter(hotel => { return hotel?.variants[0]?.price > value[0] && hotel?.variants[0]?.price < value[1] }))
     }, [value, array, filterval])
+    let c = 'https://zubaidahbilal98.pythonanywhere.com'
 
     useEffect(async () => {
         try {
             setLoading(true)
-            const res = await axios.get('https://vaya-final-backend.herokuapp.com/api/product')
+            const res = await axios.get('https://zubaidahbilal98.pythonanywhere.com/api/product')
             if (res.data) {
 
                 setArray(res.data)
@@ -158,7 +159,7 @@ const ProductsPage = () => {
                 {
                     arrayForFilter.map((item) => (
                         // <ProductCard key={item.id} {...item} image={item?.image} onClick={() => navigate(`/productinfo/${item.id}`)} />
-                        <ProductCard key={item.id} {...item} type={item?.category?.title} price={item?.variants[0]?.price} image={item?.images[0]} onClick={() => navigate(`/productinfo/${item.id}`)} />
+                        <ProductCard key={item.id} {...item} type={item?.category?.title} price={item?.variants[0]?.price} image={c + item?.images[0].image} onClick={() => navigate(`/productinfo/${item.id}`)} />
                     ))
                 }
             </div>

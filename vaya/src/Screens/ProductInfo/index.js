@@ -12,7 +12,7 @@ const ProductInfo = () => {
     const classes = useStyles();
     const [loading, setLoading] = useState(false)
     const [array, setArray] = useState([])
-
+    let c = 'https://zubaidahbilal98.pythonanywhere.com'
     const [filterval, setFilterval] = React.useState('');
     const handleChange = (event) => {
         setFilterval(event.target.value);
@@ -50,8 +50,7 @@ const ProductInfo = () => {
     }, [])
 
     const arrayOfoptinsOfSize = [];
-    let c = 'https://zubaidahbilal98.pythonanywhere.com'
-    
+
     array?.variants?.map(item => arrayOfoptinsOfSize.push({
         value: item.price, label: item.size
     }))
@@ -59,12 +58,12 @@ const ProductInfo = () => {
     if (loading || array.length == 0) {
         return <div>loading....</div>
     } else return <Grid container paddingLeft={20}>
-        
+
 
         <Grid item container xs={12} sm={12} md={12} xl={12} lg={12} gap={12}>
             <Grid item container xs={12} sm={12} md={6} xl={6} lg={6} style={{
 
-                backgroundImage: `url(${c+array.images[0].image})`, height: '500px', backgroundPosition: 'center',
+                backgroundImage: `url(${c + array.images[0].image})`, height: '500px', backgroundPosition: 'center',
                 // `url(${process.env.PUBLIC_URL + '/image.png'})`
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
@@ -93,7 +92,7 @@ const ProductInfo = () => {
                     <hr style={{ width: '100%', height: '0' }} />
                     <Grid item xs={6} sm={6} md={6} xl={6} lg={6} textAlign={'left'}>
                         <p>
-                            {console.log('array111111111111',c+array.images[0].image)}
+                            {console.log('array111111111111', c + array.images[0].image)}
                             {
                                 !!filterval ? filterval : array.variants[0].price
                             }
